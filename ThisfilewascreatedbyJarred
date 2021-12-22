@@ -1,0 +1,4 @@
+
+
+def welcome_pentad(name):
+    print(f"Hi, {name}! Welcome to the end of the world.")

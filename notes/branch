@@ -1,1 +1,32 @@
-Branch in Git is similar to the branch of a tree. Analogically, a tree branch is attached to the central part of the tree called the trunk. While branches can generate and fall off, the trunk remains compact and is the only part by which we can say the tree is alive and standing. Similarly, a branch in Git is a way to keep developing and coding a new feature or modification to the software and still not affecting the main part of the project. We can also say that branches create another line of development in the project. The primary or default branch in Git is the master branch (similar to a trunk of the tree). As soon as the repository creates, so does the main branch (or the default branch)
+https://www.toolsqa.com/git/branch-in-git/
+
+https://www.youtube.com/watch?v=Lj_jAFwofLs
+
+"Branch in Git is similar to the branch of a tree. 
+Analogically, a tree branch is attached to the central part of the tree called the trunk. 
+While branches can generate and fall off, the trunk remains compact and is the only part 
+by which we can say the tree is alive and standing. 
+Similarly, a branch in Git is a way to keep developing and coding a new feature or 
+modification to the software and still not affecting the main part of the project. 
+We can also say that branches create another line of development in the project. 
+The primary or default branch in Git is the master branch (similar to a trunk of the tree). 
+As soon as the repository creates, so does the main branch (or the default branch)"
+
+What I learned:
+
+Work can be done in parrallel without effecting the trunk, master/main branch.
+
+The project may not be effected if a branch is taking longer to develop than the others. The other features can be implemented as they are completed (if they dont rely on that particular branch)
+
+Can have multiple trunks. In the video linked above, there are three trunks:
+Development, Release, Production. Development had multiple feature branches. There were branches (He refered to them as swim lanes) that link Develop to Release. When the development is at a point to be reviewed, it is pushed to the review branch, then eventually to Production.
+
+I see the benefit of branch development being that you can work on multiple features at one time and have the ability to push them to the main branch(trunk) while others are being debugged or completed. There can even be a branch for debugging.
+
+This type of development seems benificial for a larger team. Teams can be divided into different features and work on their own branch. I can see that it can also work with smaller groups where feature implementation is dedicated to one or two people. 
+
+Questions:
+Does complexity of the project determine if you go with branch vs trunk?
+How complex can braching get? Can a feature branch be branched from another branch (sounds redundant)?
+
+Need visual examples. Some that I found looked fairly complicated but may be how I am translating them.

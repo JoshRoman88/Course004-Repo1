@@ -1,0 +1,7 @@
+Trunk vs Branch Dev:
+
+Branch is seen more in larger teams and/or large projects. 
+Allows features to be implemented as they are reviewed and completed.
+Issues:
+Can have conflicting errors as the main branch is updated with new commits and pushes.
+

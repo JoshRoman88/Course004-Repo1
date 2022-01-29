@@ -1,1 +1,14 @@
+<<<<<<< Updated upstream
+=======
+Edited this file with vim instead of vi in vscode as a test. 
+This line was changed after creating a new branch before push the previous line to see what happens.
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
 -GGG

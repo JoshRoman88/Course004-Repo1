@@ -1,0 +1,30 @@
+Trunk vs Branch Dev:
+
+Branch is seen more in larger teams and/or large projects. 
+Allows features to be implemented as they are reviewed and completed.
+Issues:
+Can have conflicting errors as the main branch is updated with new commits and pushes.
+
+
+
+git branch commands:
+git branch - shows current branches
+git branch <name of branch> - creates branch
+
+git checkout <name of branch> - to work in branch
+git switch <branch name> - change branches
+
+An error will pop when trying to push while in the branch. The proper command will display - copy and use that command.
+git push --set-upstream origin <branch name>
+
+deleting branch from local machine:
+git switch main - Cannot be in the branch you are deleting.
+git branch -d <branch name>
+
+Branch to merge flow:
+Dev creates branch
+Dev completes task, adds, commits, and push (the branch way)
+
+Go to github (mothership)
+Go to repo you are working on
+Select pull request

@@ -7,9 +7,11 @@ terraform {
   }
 
   required_version = ">= 0.14.9"
+  
 }
 
+#Using variable ref from variables.tf
 provider "aws" {
-  profile = "default"
-  region  = "us-east-1"
+  region = var.aws_default_region
 }
+

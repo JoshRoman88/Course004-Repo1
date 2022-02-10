@@ -1,0 +1,17 @@
+commands/arguments:
+terraform plan
+terraform appply
+
+var types:
+string
+map() ex: map(string)
+
+
+
+Can create variables in seperate files, it variable.tf w/ region var.
+Calling variable require var. infront of variable name.
+
+
+Data sources - asking for info 
+
+

@@ -10,3 +10,4 @@ variable "aws_default_region" {
   description = "Default aws region"
   default     = "us-east-1"
 }
+

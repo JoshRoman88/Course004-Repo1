@@ -1,8 +1,9 @@
 commands/arguments:
 terraform init
-terraform plan
+terraform validate - checks code loacally for errors.
+terraform plan - green + = creating, yellow ~ = modifying, red - = destroying
 terraform appply
-terraform destroy
+terraform destroy 
 
 var types:
 string
@@ -13,7 +14,10 @@ map() ex: map(string)
 Can create variables in seperate files, it variable.tf w/ region var.
 Calling variable require var. infront of variable name.
 
+Do not need to reference other files within direcroty.
 
 Data sources - asking for info 
+
+Best practice: Declare providers in terraform
 
 

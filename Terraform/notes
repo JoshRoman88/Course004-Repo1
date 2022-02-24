@@ -1,7 +1,7 @@
 commands/arguments:
 ---------------------
 terraform init
-terraform validate - checks code loacally for errors.
+terraform validate - checks code loacally for errors. Checks only syntax and variables.
 terraform plan - green + = creating, yellow ~ = modifying, red - = destroying
 terraform appply
 terraform destroy 
@@ -32,6 +32,16 @@ Terraform Import - can import changes
 Terraform import followed by the resource block name and then its usually some kind of id string. Like the resource id in the cloud or something.
 Each resource will have a documented import example at the bottom within the online documentation
 
+Best practices - 
+State files can contain secrets.
+use git ignore to prevent state file from being pushed.
+Dont share statefile.
+
+Show state of recource in CLI:
+$terraform state show **resource**
+
+aws cli 
+---------
 Creating new profile in aws for terraform
 $ aws configure --profile **profile name**
 look into aws configure --profile help

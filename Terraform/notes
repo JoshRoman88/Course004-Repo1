@@ -45,3 +45,7 @@ aws cli
 Creating new profile in aws for terraform
 $ aws configure --profile **profile name**
 look into aws configure --profile help
+
+more ~/.aws/config
+
+aws s3api create-bucket --bucket **NAME** --region us-east-1

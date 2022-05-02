@@ -5,10 +5,10 @@ Practice environment for deploying resources with Terraform. Includes notes take
 
 
 Notes:
-*****************************************************************************************
-Git
-*****************************************************************************************
 ================
+Git
+================
+
 Trunk vs Branch Dev:
 ================
 Branch is seen more in larger teams and/or large projects. 
@@ -16,7 +16,7 @@ Allows features to be implemented as they are reviewed and completed.
 Issues:
 Can have conflicting errors as the main branch is updated with new commits and pushes.
 
-================
+
 Pulls
 ================
 
@@ -27,7 +27,7 @@ Requests that notifies a team that the developer has completed a feature branch.
 Notifies team that their feature branch is ready for reaview and to be merged with the main branch.
 
 Creates a forum where the request can be discussed while also giving the ability for follow up commits to be pushed directly to the merge request.
-================
+
 Commands
 ================
 Git clone - Locate repo and clone it
@@ -55,7 +55,7 @@ When using revert - VI is opened and commit message is edited at the top line.
 **Commit messages should identify who did it, what file was modify, and what will happen if commit is pushed.
  Keep messages uniform following the same formula each time.*
 
-================
+
 git branch
 ================
 
@@ -81,7 +81,7 @@ Go to github (mothership)
 Go to repo you are working on
 Select pull request
 
-================
+
 git stash
 ================
 
@@ -101,9 +101,10 @@ working copy so you can work on something else, and then come back and re-apply 
 
 *****************************************************************************************
 AWS
+================
 *****************************************************************************************
 
-================
+
 IAM
 ================
 Identity and Access Management
@@ -116,7 +117,7 @@ IAM users are denied access by default until privilegs are added.
 
 Can create groups and add users to them with permissions. 
 
-================
+
 Route 53
 ================
 DNS
@@ -126,7 +127,6 @@ A way of routing users to aws infrastructure (and outside insfrastructures).
 Ability to register domain names.
 Can automatically configure DNS settings for your domains.
 
-================
 aws cli 
 ================
 Creating new profile in aws for terraform
@@ -140,19 +140,23 @@ aws s3api create-bucket --bucket **NAME** --region us-east-1
 
 *****************************************************************************************
 Terraform
+================
 *****************************************************************************************
-=========================================================================================
+
+
 commands/arguments:
-=========================================================================================
+================
+
 terraform init
 terraform validate - checks code loacally for errors. Checks only syntax and variables.
 terraform plan - green + = creating, yellow ~ = modifying, red - = destroying
 terraform appply
 terraform destroy 
 terraform fmt - formats typed code in a way to be easy to read. 
-=========================================================================================
+
+
 Variables
-=========================================================================================
+================
 var types:
 string
 map() ex: map(string)
@@ -166,9 +170,9 @@ Do not need to reference other files within direcroty.
 *Data sources - asking for info 
 *Best practice: Declare providers in terraform
 
-=========================================================================================
+
 State
-=========================================================================================
+================
 State: Maps configured resouce instances and remote objects.
 Make sure to communicate with team when adding hardware changes to instance. 
 

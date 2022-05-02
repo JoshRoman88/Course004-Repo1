@@ -5,20 +5,20 @@ Practice environment for deploying resources with Terraform. Includes notes take
 
 
 Notes:
-*****************************************************************************************
+================
 Git
-*****************************************************************************************
-=
+================
+
 Trunk vs Branch Dev:
-=
+================
 Branch is seen more in larger teams and/or large projects. 
 Allows features to be implemented as they are reviewed and completed.
 Issues:
 Can have conflicting errors as the main branch is updated with new commits and pushes.
 
-================
-Pulls
 
+Pulls
+================
 
 Pull Requests:
 
@@ -101,6 +101,7 @@ working copy so you can work on something else, and then come back and re-apply 
 
 *****************************************************************************************
 AWS
+================
 *****************************************************************************************
 
 
@@ -139,10 +140,12 @@ aws s3api create-bucket --bucket **NAME** --region us-east-1
 
 *****************************************************************************************
 Terraform
+================
 *****************************************************************************************
 
-================
+
 commands/arguments:
+================
 
 terraform init
 terraform validate - checks code loacally for errors. Checks only syntax and variables.
@@ -151,9 +154,9 @@ terraform appply
 terraform destroy 
 terraform fmt - formats typed code in a way to be easy to read. 
 
-================
-Variables
 
+Variables
+================
 var types:
 string
 map() ex: map(string)
@@ -167,9 +170,9 @@ Do not need to reference other files within direcroty.
 *Data sources - asking for info 
 *Best practice: Declare providers in terraform
 
-================
-State
 
+State
+================
 State: Maps configured resouce instances and remote objects.
 Make sure to communicate with team when adding hardware changes to instance. 
 

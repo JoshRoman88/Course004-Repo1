@@ -1,7 +1,0 @@
-Route 53
-DNS
-Cloud Domain Service for routing end users to internet applications.
-A way of routing users to aws infrastructure (and outside insfrastructures).
-
-Ability to register domain names.
-Can automatically configure DNS settings for your domains.

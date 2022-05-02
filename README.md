@@ -8,17 +8,17 @@ Notes:
 *****************************************************************************************
 Git
 *****************************************************************************************
-=========================================================================================
+================
 Trunk vs Branch Dev:
-=========================================================================================
+================
 Branch is seen more in larger teams and/or large projects. 
 Allows features to be implemented as they are reviewed and completed.
 Issues:
 Can have conflicting errors as the main branch is updated with new commits and pushes.
 
-=========================================================================================
+================
 Pulls
-=========================================================================================
+================
 
 Pull Requests:
 
@@ -27,9 +27,9 @@ Requests that notifies a team that the developer has completed a feature branch.
 Notifies team that their feature branch is ready for reaview and to be merged with the main branch.
 
 Creates a forum where the request can be discussed while also giving the ability for follow up commits to be pushed directly to the merge request.
-=========================================================================================
+================
 Commands
-=========================================================================================
+================
 Git clone - Locate repo and clone it
 Cd into the directory who want to clone the repo.
 
@@ -55,9 +55,9 @@ When using revert - VI is opened and commit message is edited at the top line.
 **Commit messages should identify who did it, what file was modify, and what will happen if commit is pushed.
  Keep messages uniform following the same formula each time.*
 
-=========================================================================================
+================
 git branch
-=========================================================================================
+================
 
 git branch commands:
 git branch - shows current branches
@@ -81,9 +81,9 @@ Go to github (mothership)
 Go to repo you are working on
 Select pull request
 
-=========================================================================================
+================
 git stash
-=========================================================================================
+================
 
 git add file
 git stash
@@ -103,9 +103,9 @@ working copy so you can work on something else, and then come back and re-apply 
 AWS
 *****************************************************************************************
 
-=========================================================================================
+================
 IAM
-=========================================================================================
+================
 Identity and Access Management
 
 Create users with specific permissions set.
@@ -116,9 +116,9 @@ IAM users are denied access by default until privilegs are added.
 
 Can create groups and add users to them with permissions. 
 
-=========================================================================================
+================
 Route 53
-=========================================================================================
+================
 DNS
 Cloud Domain Service for routing end users to internet applications.
 A way of routing users to aws infrastructure (and outside insfrastructures).
@@ -126,9 +126,9 @@ A way of routing users to aws infrastructure (and outside insfrastructures).
 Ability to register domain names.
 Can automatically configure DNS settings for your domains.
 
-=========================================================================================
+================
 aws cli 
-=========================================================================================
+================
 Creating new profile in aws for terraform
 $ aws configure --profile **profile name**
 look into aws configure --profile help

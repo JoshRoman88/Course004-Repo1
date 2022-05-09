@@ -2,7 +2,7 @@ version: 2.1
 
 jobs:
   init-plan:
-    working_directory: /terraform-sandbox/terraform
+    working_directory: /terraform
     docker: 
       - image: hashicorp/terraform:light   
     steps:
@@ -15,7 +15,7 @@ jobs:
             terraform fmt .
             terraform plan
   apply:
-    working_directory: /terraform-sandbox/terraform
+    working_directory: /terraform
     docker: 
       - image: hashicorp/terraform:light 
     steps:
@@ -26,7 +26,7 @@ jobs:
            command: |
             terraform apply -auto-approve
   destroy:
-    working_directory: /terraform-sandbox/terraform
+    working_directory: /terraform
     docker: 
       - image: hashicorp/terraform:light
     steps:

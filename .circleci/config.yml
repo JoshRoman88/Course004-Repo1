@@ -7,7 +7,6 @@ jobs:
   init-plan:
     working_directory: ~/project/Terraform
     executor: docker-executor 
-  
     steps:
       - run:
           name: Install Terraform

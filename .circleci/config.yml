@@ -5,7 +5,7 @@ executors:
       - image: cimg/python:3.9.6
 jobs:
   init-plan:
-    working_directory: ~/project/terraform
+    working_directory: ~/project/Terraform
     executor: docker-executor 
   
     steps:

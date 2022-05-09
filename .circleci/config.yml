@@ -40,13 +40,10 @@ workflows:
     deploy:
       jobs:
         - init-plan
-        - hold apply:
-            type: approval
-            requires:
-              - apply
         - apply:
             requires:
-              - hold apply
+              - approval
+            
 
     destroy:
       jobs:

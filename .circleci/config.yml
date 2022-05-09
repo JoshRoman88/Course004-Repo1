@@ -11,8 +11,10 @@ jobs:
       - run:
           name: terraform init plan fmt
           command: |
+            mkdir project/terraform
+            cd ~/project/terraform
+            touch main.tf
             terraform init
-            pwd
             terraform fmt .
             terraform plan
   apply:
@@ -37,17 +39,6 @@ jobs:
            name: terraform destroy
            command: |
             terraform destroy -auto-approve
-
-set_terraform_environment: &set_terraform_environment
-  run:
-    name: set terraform environment
-    command: |
-      cd && touch $BASH_ENV
-      if [ "${CIRCLE_BRANCH}" == "master" ]; then
-        echo 'export TERRAFORM_ENVIRONMENT=production' >> $BASH_ENV
-      else
-        echo 'export TERRAFORM_ENVIRONMENT=staging' >> $BASH_ENV
-      fi
 
 workflows:
     deploy:

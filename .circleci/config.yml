@@ -5,7 +5,7 @@ jobs:
   init-plan:
     docker: 
       - image: hashicorp/terraform:light
-    working_directory: /terraform-sandbox/Terraform
+    working_directory: /terraform-sandbox/
     steps:
       - checkout
       - run:
@@ -18,7 +18,7 @@ jobs:
   apply:
     docker: 
       - image: hashicorp/terraform:light
-    working_directory: /terraform-sandbox/Terraform
+    working_directory: /terraform-sandbox/
     steps:
       - checkout
       - run:
@@ -28,7 +28,7 @@ jobs:
   destroy:
     docker: 
       - image: hashicorp/terraform:light
-    working_directory: /terraform-sandbox/Terraform
+    working_directory: /terraform-sandbox/
     steps:
       - checkout
       - run:

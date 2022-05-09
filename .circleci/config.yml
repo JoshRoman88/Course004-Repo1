@@ -5,7 +5,7 @@ jobs:
   init-plan:
     docker: 
       - image: hashicorp/terraform:light
-    working_directory: .
+    working_directory: ~/terraform-sandbox
     steps:
       - checkout
       - run:

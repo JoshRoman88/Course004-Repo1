@@ -8,6 +8,7 @@ jobs:
     working_directory: ~/project/terraform
     executor: docker-executor 
     steps:
+      - checkout
       - run:
           name: Install Terraform
           command: |

@@ -2,7 +2,7 @@ version: 2.1
 
 jobs:
   init-plan:
-    working_directory: /terraform
+    working_directory: ~/project/terraform
     docker: 
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light  
   
@@ -17,7 +17,7 @@ jobs:
             terraform fmt .
             terraform plan -input=false
   apply:
-    working_directory: /terraform
+    working_directory: ~/project/terraform
     docker: 
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light 
     steps:
@@ -28,7 +28,7 @@ jobs:
            command: |
             terraform apply -auto-approve
   destroy:
-    working_directory: /terraform
+    working_directory: ~/project/terraform
     docker: 
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
     steps:

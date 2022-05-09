@@ -5,6 +5,7 @@ jobs:
     working_directory: ~/Terraform
     docker: 
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light  
+  
     steps:
       - attach_workspace:
           at: .
@@ -13,9 +14,9 @@ jobs:
           command: |
             ls -al
             pwd
-            terraform init
+            terraform init -input=false
             terraform fmt .
-            terraform plan
+            terraform plan -input=false
   apply:
     working_directory: ~/Terraform
     docker: 
@@ -56,3 +57,80 @@ workflows:
 
       
 
+# version: 2
+# jobs:
+#   terraform-validate:
+#     docker:
+#       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
+#     steps:
+#       - checkout
+#       - run:
+#           name: Terraform Validate
+#           command: |
+#             terraform init
+#             terraform validate
+#   terraform-plan:
+#     docker:
+#       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
+#     steps:
+#       - checkout
+#       - run:
+#           name: Terraform Validate
+#           command: |
+#             terraform init
+#             terraform plan
+#   terraform-apply:
+#     docker:
+#       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
+#     steps:
+#       - checkout
+#       - run:
+#           name: Terraform Apply
+#           command: |
+#             terraform init
+#             terraform apply -auto-approve
+#       - persist_to_workspace:
+#           root: /root
+#           paths:
+#             - Terraform
+#   run-inspec-tests:
+#     docker:
+#       - image: docker.mirror.hashicorp.services/chef/inspec:latest
+#     steps:
+#       - attach_workspace:
+#           at: ~/
+#       - run:
+#           name: Inspec Tests
+#           command: |
+#             inspec --version
+#       - persist_to_workspace:
+#           root: /root
+#           paths:
+#             - Terraform
+#   terraform-destroy:
+#     docker:
+#       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
+#     steps:
+#       - attach_workspace:
+#           at: ~/
+#       - run:
+#           name: Terraform Destroy
+#           command: |
+#             terraform destroy -auto-approve
+# workflows:
+#   version: 2
+#   infrastructure-tests:
+#     jobs:
+#       - terraform-validate
+#       - terraform-plan:
+#           requires:
+#             - terraform-validate
+#       - terraform-apply:
+#           requires:
+#             - terraform-plan
+#       - run-inspec-tests:
+#           requires:
+#             - terraform-apply
+#       - terraform-destroy:
+#           requires:
+#             - run-inspec-tests

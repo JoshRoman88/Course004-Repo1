@@ -3,11 +3,12 @@ version: 2.1
 jobs:
 
   init-plan:
+    working_directory: /terraform-sandbox/terraform
     docker: 
       - image: hashicorp/terraform:light   
     steps:
       - attach_workspace:
-          at: /terraform-sandbox/terraform
+          at: .
       - run:
           name: terraform init plan fmt
           command: |
@@ -16,21 +17,23 @@ jobs:
             terraform fmt .
             terraform plan
   apply:
+    working_directory: /terraform-sandbox/terraform
     docker: 
       - image: hashicorp/terraform:light 
     steps:
       - attach_workspace:
-          at: /terraform-sandbox/terraform
+          at: .
       - run:
            name: terraform apply
            command: |
             terraform apply -auto-approve
   destroy:
+    working_directory: /terraform-sandbox/terraform
     docker: 
       - image: hashicorp/terraform:light
     steps:
       - attach_workspace:
-          at: /terraform-sandbox/terraform
+          at: .
       - run:
            name: terraform destroy
            command: |

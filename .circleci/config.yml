@@ -12,6 +12,7 @@ jobs:
           name: terraform init plan fmt
           command: |
             terraform init
+            pwd
             terraform fmt .
             terraform plan
   apply:

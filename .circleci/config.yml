@@ -12,6 +12,7 @@ jobs:
       - run:
           name: terraform init plan fmt
           command: |
+            cd ~/terraform-sandbox/terraform
             terraform init
             pwd
             terraform fmt .

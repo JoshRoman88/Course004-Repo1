@@ -4,10 +4,10 @@ jobs:
 
   init-plan:
     docker: 
-      - image: hashicorp/terraform:light
-    # working_directory: /terraform-sandbox/
+      - image: hashicorp/terraform:light   
     steps:
-      - checkout
+      - attach_workspace:
+          at: .
       - run:
           name: terraform init plan fmt
           command: |
@@ -17,10 +17,10 @@ jobs:
             terraform plan
   apply:
     docker: 
-      - image: hashicorp/terraform:light
-    # working_directory: /terraform-sandbox/
+      - image: hashicorp/terraform:light 
     steps:
-      - checkout
+      - attach_workspace:
+          at: .
       - run:
            name: terraform apply
            command: |
@@ -28,9 +28,9 @@ jobs:
   destroy:
     docker: 
       - image: hashicorp/terraform:light
-    # working_directory: /terraform-sandbox/
     steps:
-      - checkout
+      - attach_workspace:
+          at: .
       - run:
            name: terraform destroy
            command: |
@@ -50,7 +50,7 @@ workflows:
               - hold
         - destroy:
             requires:
-              - apply
+              - hold
 
       
 

@@ -1,11 +1,12 @@
 version: 2.1
-
+executors:
+  docker-executor:
+    docker:
+      - image: cimg/python:3.9.6
 jobs:
   init-plan:
     working_directory: ~/terraform
-    docker: 
-      - image: docker.mirror.hashicorp.services/hashicorp/terraform:light  
-  
+    executor: docker-executor
     steps:
       - attach_workspace:
           at: .
@@ -18,8 +19,7 @@ jobs:
             terraform plan -input=false
   apply:
     working_directory: ~/terraform
-    docker: 
-      - image: docker.mirror.hashicorp.services/hashicorp/terraform:light 
+    executor: docker-executor
     steps:
       - attach_workspace:
           at: .
@@ -29,8 +29,7 @@ jobs:
             terraform apply -auto-approve
   destroy:
     working_directory: ~/terraform
-    docker: 
-      - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
+    executor: docker-executor
     steps:
       - attach_workspace:
           at: .

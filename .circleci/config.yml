@@ -5,7 +5,7 @@ executors:
       - image: cimg/python:3.9.6
 jobs:
   init-plan:
-    working_directory: ~/terraform
+    working_directory: ~/project/terraform
     executor: docker-executor
     steps:
       - attach_workspace:
@@ -25,7 +25,7 @@ jobs:
             terraform fmt .
             terraform plan -input=false
   apply:
-    working_directory: ~/terraform
+    working_directory: ~/project/terraform
     executor: docker-executor
     steps:
       - attach_workspace:
@@ -35,7 +35,7 @@ jobs:
            command: |
             terraform apply -auto-approve
   destroy:
-    working_directory: ~/terraform
+    working_directory: ~/project/terraform
     executor: docker-executor
     steps:
       - attach_workspace:

@@ -5,6 +5,7 @@ jobs:
     working_directory: ~/Terraform
     docker: 
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light  
+      - image: ubuntu-2004:current
     steps:
       - attach_workspace:
           at: .

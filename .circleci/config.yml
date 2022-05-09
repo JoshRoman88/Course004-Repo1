@@ -21,6 +21,7 @@ jobs:
       - run:
           name: terraform init plan fmt
           command: |
+            cd terraform
             ls -al
             terraform init -input=false
             terraform fmt .

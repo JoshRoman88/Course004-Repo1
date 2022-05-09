@@ -16,7 +16,7 @@ jobs:
             pwd
             terraform init -input=false
             terraform fmt .
-            terraform plan -input=tfplan -input=false
+            terraform plan -input=false
   apply:
     working_directory: ~/Terraform
     docker: 

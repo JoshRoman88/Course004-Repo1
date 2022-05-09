@@ -48,8 +48,6 @@ workflows:
         - apply:
             requires:
               - hold
-    destroy:
-        jobs:
         - destroy:
             requires:
               - hold

@@ -8,6 +8,7 @@ jobs:
     working_directory: ~/project/terraform
     executor: docker-executor
     steps:
+      - checkout
       - attach_workspace:
           at: .
       - run:
@@ -28,6 +29,7 @@ jobs:
     working_directory: ~/project/terraform
     executor: docker-executor
     steps:
+      - checkout
       - attach_workspace:
           at: .
       - run:
@@ -38,6 +40,7 @@ jobs:
     working_directory: ~/project/terraform
     executor: docker-executor
     steps:
+      - checkout
       - attach_workspace:
           at: .
       - run:

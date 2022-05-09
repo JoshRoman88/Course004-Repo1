@@ -5,7 +5,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "joshbucket8806"
-    key    = "testingtf.tfstate"
+    key    = "terraform.tfstate"
     region = "us-east-1"
   }
 }

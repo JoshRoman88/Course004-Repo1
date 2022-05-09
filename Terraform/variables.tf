@@ -1,3 +1,3 @@
-variable "lightsnail_config" {
-  type = map(any)
-}
+# variable "lightsnail_config" {
+#   type = map(any)
+# }

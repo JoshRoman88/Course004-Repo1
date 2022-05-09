@@ -11,9 +11,6 @@ jobs:
       - run:
           name: terraform init plan fmt
           command: |
-            mkdir project/terraform
-            cd ~/project/terraform
-            touch main.tf
             terraform init
             terraform fmt .
             terraform plan

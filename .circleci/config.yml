@@ -68,7 +68,9 @@ workflows:
       jobs:
         - aws-cli-install:
             context: AWScreds
-        - init-plan
+        - init-plan:
+            requires:
+              - aws-cli-install
         - hold:
             type: approval
             requires:

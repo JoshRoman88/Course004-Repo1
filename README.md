@@ -1,4 +1,4 @@
-# Course004-Repo1
+# terraform-sandbox
 
 Practice environment for deploying resources with Terraform. Includes notes taken during learning sessions.
 

@@ -6,6 +6,15 @@ executors:
     docker:
       - image: cimg/python:3.9.6
 jobs:
+  aws-cli-install:
+    executor: aws-cli/default
+    steps:
+      - checkout
+      - aws-cli/setup:
+          profile-name: default
+      - run:
+          command: |
+           aws --version
   init-plan:
     working_directory: ~/project/terraform
     executor: docker-executor 

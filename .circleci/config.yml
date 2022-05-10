@@ -20,6 +20,8 @@ jobs:
     executor: docker-executor 
     steps:
       - checkout
+      - aws-cli/setup:
+          profile-name: default
       - run:
           name: Install Terraform
           command: |

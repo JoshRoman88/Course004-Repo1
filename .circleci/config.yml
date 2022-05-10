@@ -20,8 +20,8 @@ jobs:
     executor: docker-executor 
     steps:
       - checkout
-      - aws-cli/setup:
-          profile-name: default
+      # - aws-cli/setup:
+      #     profile-name: default
       - run:
           name: Install Terraform
           command: |
@@ -66,8 +66,9 @@ jobs:
 workflows:
     deploy:
       jobs:
-        - init-plan:
+        - aws-cli-install:
             context: AWScreds
+        - init-plan
         - hold:
             type: approval
             requires:

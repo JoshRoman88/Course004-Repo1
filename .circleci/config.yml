@@ -1,4 +1,6 @@
 version: 2.1
+orbs: 
+  aws-cli: circleci/aws-cli@3.1.1
 executors:
   docker-executor:
     docker:
@@ -9,6 +11,12 @@ jobs:
     executor: docker-executor 
     steps:
       - checkout
+      - aws-cli/setup:
+          profile-name: default
+      - run:
+          name: Check aws version
+          command: |
+            aws --version
       - run:
           name: Install Terraform
           command: |
@@ -30,6 +38,7 @@ jobs:
     docker: 
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light 
     steps:
+      - checkout
       - attach_workspace:
           at: .
       - run:
@@ -41,6 +50,7 @@ jobs:
     docker: 
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
     steps:
+      - checkout
       - attach_workspace:
           at: .
       - run:
@@ -51,7 +61,8 @@ jobs:
 workflows:
     deploy:
       jobs:
-        - init-plan
+        - init-plan:
+            context: AWScreds
         - hold:
             type: approval
             requires:

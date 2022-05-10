@@ -2,10 +2,6 @@
 
 Practice environment for deploying resources with Terraform. Includes notes taken during learning sessions.
 
-
-
-Notes:
-================
 Git
 ================
 
@@ -99,10 +95,9 @@ working copy so you can work on something else, and then come back and re-apply 
 
 
 
-*****************************************************************************************
-AWS
-================
-*****************************************************************************************
+
+# AWS
+*****
 
 
 IAM

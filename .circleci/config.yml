@@ -30,6 +30,7 @@ jobs:
     docker: 
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light 
     steps:
+      - checkout
       - attach_workspace:
           at: .
       - run:
@@ -41,6 +42,7 @@ jobs:
     docker: 
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
     steps:
+      - checkout
       - attach_workspace:
           at: .
       - run:

@@ -1,20 +1,21 @@
 # terraform-sandbox
 
 Practice environment for deploying resources with Terraform. Includes notes taken during learning sessions.
+******************
+******************
+# Git
 
-Git
-================
 
-Trunk vs Branch Dev:
-================
+# Trunk vs Branch Dev:
+
 Branch is seen more in larger teams and/or large projects. 
 Allows features to be implemented as they are reviewed and completed.
 Issues:
 Can have conflicting errors as the main branch is updated with new commits and pushes.
 
 
-Pulls
-================
+# Pulls
+
 
 Pull Requests:
 
@@ -24,8 +25,8 @@ Notifies team that their feature branch is ready for reaview and to be merged wi
 
 Creates a forum where the request can be discussed while also giving the ability for follow up commits to be pushed directly to the merge request.
 
-Commands
-================
+# Commands
+
 Git clone - Locate repo and clone it
 Cd into the directory who want to clone the repo.
 
@@ -52,8 +53,8 @@ When using revert - VI is opened and commit message is edited at the top line.
  Keep messages uniform following the same formula each time.*
 
 
-git branch
-================
+# git branch
+
 
 git branch commands:
 git branch - shows current branches
@@ -78,8 +79,7 @@ Go to repo you are working on
 Select pull request
 
 
-git stash
-================
+# git stash
 
 git add file
 git stash
@@ -95,13 +95,14 @@ working copy so you can work on something else, and then come back and re-apply 
 
 
 
-
+******************
+******************
 # AWS
-*****
 
 
-IAM
-================
+
+# IAM
+
 Identity and Access Management
 
 Create users with specific permissions set.
@@ -113,8 +114,8 @@ IAM users are denied access by default until privilegs are added.
 Can create groups and add users to them with permissions. 
 
 
-Route 53
-================
+# Route 53
+
 DNS
 Cloud Domain Service for routing end users to internet applications.
 A way of routing users to aws infrastructure (and outside insfrastructures).
@@ -122,8 +123,8 @@ A way of routing users to aws infrastructure (and outside insfrastructures).
 Ability to register domain names.
 Can automatically configure DNS settings for your domains.
 
-aws cli 
-================
+# aws cli 
+
 Creating new profile in aws for terraform
 $ aws configure --profile **profile name**
 look into aws configure --profile help
@@ -131,16 +132,16 @@ look into aws configure --profile help
 more ~/.aws/config
 
 aws s3api create-bucket --bucket **NAME** --region us-east-1
+ 
+
+******************
+******************
+# Terraform
 
 
-*****************************************************************************************
-Terraform
-================
-*****************************************************************************************
 
+# commands/arguments:
 
-commands/arguments:
-================
 
 terraform init
 terraform validate - checks code loacally for errors. Checks only syntax and variables.
@@ -150,8 +151,8 @@ terraform destroy
 terraform fmt - formats typed code in a way to be easy to read. 
 
 
-Variables
-================
+# Variables
+
 var types:
 string
 map() ex: map(string)
@@ -166,8 +167,8 @@ Do not need to reference other files within direcroty.
 *Best practice: Declare providers in terraform
 
 
-State
-================
+# State
+
 State: Maps configured resouce instances and remote objects.
 Make sure to communicate with team when adding hardware changes to instance. 
 
@@ -182,4 +183,8 @@ Dont share statefile.
 
 Show state of recource in CLI:
 $terraform state show **resource**
+ 
+******************
+******************
+# CI/CD - Circleci
 

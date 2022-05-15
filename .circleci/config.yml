@@ -19,24 +19,6 @@ jobs:
           name: Check aws version
           command: |
             aws --version
-      - terraform/init:
-          checkout: true
-          context: terraform
-      - terraform/fmt:
-          checkout: true
-          context: terraform
-      - terraform/validate:
-          checkout: true
-          context: terraform
-          requires:
-            - terraform/fmt
-      - terraform/plan:
-          checkout: true
-          context: terraform
-          persist-workspace: true
-          requires:
-            - terraform/validate
-
       # - run:
       #     # name: Install Terraform
       #     # command: |
@@ -46,13 +28,13 @@ jobs:
       #     #   sudo apt-get update && sudo apt-get install terraform
       # - attach_workspace:
       #     at: .
-      # # - run:
-      # #     name: terraform init plan fmt
-      # #     command: |
-      # #       cd terraform
-      # #       terraform init -input=false
-      # #       terraform fmt .
-      # #       terraform plan -out tfplan
+      - run:
+          name: terraform init plan fmt
+          command: |
+            cd terraform
+            terraform init -input=false
+            terraform fmt .
+            terraform plan -out tfplan
       - persist_to_workspace:
           root: .
           paths:
@@ -66,16 +48,13 @@ jobs:
           profile-name: default
       - attach_workspace:
           at: ~/project/terraform
-      - terraform/apply:
-          attach-workspace: true
-          context: terraform
-      # - run:
-      #      name: terraform apply
-      #      command: |
-      #       ls -al
-      #       cd terraform
-      #       ls -al
-      #       terraform apply
+      - run:
+           name: terraform apply
+           command: |
+            ls -al
+            cd terraform
+            ls -al
+            terraform apply
       - persist_to_workspace:
            root: .
            paths:
@@ -89,18 +68,15 @@ jobs:
           profile-name: default
       - attach_workspace:
           at: ~/project/terraform
-      - terraform/destroy:
-          attach-workspace: true
-          context: terraform
-      # - run:
-      #      name: terraform destroy
-      #      command: |
-      #       cd terraform
-      #       terraform destroy -auto-approve
-      # - persist_to_workspace:
-      #      root: .
-      #      paths:
-      #         - .
+      - run:
+           name: terraform destroy
+           command: |
+            cd terraform
+            terraform destroy -auto-approve
+      - persist_to_workspace:
+           root: .
+           paths:
+              - .
 workflows:
     deploy:
       jobs:

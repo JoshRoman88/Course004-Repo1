@@ -52,7 +52,7 @@ jobs:
             ls -al
             cd terraform
             ls -al
-            terraform apply -auto-approve tfplan
+            terraform apply tfplan
       - persist_to_workspace:
            root: .
            paths:

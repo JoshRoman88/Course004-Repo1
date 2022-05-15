@@ -38,6 +38,7 @@ jobs:
     working_directory: /terraform
     executor: docker-executor 
     steps:
+      - checkout
       # - aws-cli/setup:
       #     profile-name: default
       # - attach_workspace:
@@ -51,6 +52,7 @@ jobs:
     working_directory: /terraform
     executor: docker-executor 
     steps:
+      - checkout
       # - aws-cli/setup:
       #     profile-name: default
       # - attach_workspace:

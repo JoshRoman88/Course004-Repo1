@@ -47,7 +47,7 @@ jobs:
            name: terraform apply
            command: |
             echo 2323
-            terraform apply
+            terraform apply -auto-approve tf.plan
   destroy:
     working_directory: ~/project/terraform
     executor: docker-executor 

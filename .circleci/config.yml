@@ -45,7 +45,7 @@ jobs:
       - run:
            name: terraform apply
            command: |
-            echo 2323
+            cd terraform
             terraform apply -auto-approve tfplan
   destroy:
     working_directory: ~/project/terraform
@@ -59,7 +59,7 @@ jobs:
       - run:
            name: terraform destroy
            command: |
-            echo 2324
+            cd terraform
             terraform destroy -auto-approve
 
 workflows:

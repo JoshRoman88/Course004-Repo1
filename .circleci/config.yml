@@ -33,6 +33,7 @@ jobs:
             terraform init -input=false
             terraform fmt .
             terraform plan -input=false
+            terraform plan -out tf.plan
   apply:
     working_directory: /terraform
     executor: docker-executor 

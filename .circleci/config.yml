@@ -32,8 +32,7 @@ jobs:
             cd terraform
             terraform init -input=false
             terraform fmt .
-            terraform plan -input=false
-            terraform plan -out tf.plan
+            terraform plan -out tfplan
   apply:
     working_directory: ~/project/terraform
     executor: docker-executor 
@@ -47,7 +46,7 @@ jobs:
            name: terraform apply
            command: |
             echo 2323
-            terraform apply -auto-approve tf.plan
+            terraform apply -auto-approve tfplan
   destroy:
     working_directory: ~/project/terraform
     executor: docker-executor 

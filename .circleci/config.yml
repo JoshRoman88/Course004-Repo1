@@ -39,10 +39,10 @@ jobs:
     executor: docker-executor 
     steps:
       - checkout
-      # - aws-cli/setup:
-      #     profile-name: default
-      # - attach_workspace:
-      #     at: .
+      - aws-cli/setup:
+          profile-name: default
+      - attach_workspace:
+          at: .
       - run:
            name: terraform apply
            command: |
@@ -53,10 +53,10 @@ jobs:
     executor: docker-executor 
     steps:
       - checkout
-      # - aws-cli/setup:
-      #     profile-name: default
-      # - attach_workspace:
-      #     at: .
+      - aws-cli/setup:
+          profile-name: default
+      - attach_workspace:
+          at: .
       - run:
            name: terraform destroy
            command: |

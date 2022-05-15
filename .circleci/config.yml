@@ -45,7 +45,7 @@ jobs:
       - aws-cli/setup:
           profile-name: default
       - attach_workspace:
-          at: .
+          at: ~/project/terraform
       - run:
            name: terraform apply
            command: |
@@ -65,7 +65,7 @@ jobs:
       - aws-cli/setup:
           profile-name: default
       - attach_workspace:
-          at: .
+          at: ~/project/terraform
       - run:
            name: terraform destroy
            command: |

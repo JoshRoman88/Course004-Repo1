@@ -19,15 +19,15 @@ jobs:
           name: Check aws version
           command: |
             aws --version
-      # - run:
-      #     # name: Install Terraform
-      #     # command: |
-      #     #   sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
-      #     #   curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-      #     #   sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-      #     #   sudo apt-get update && sudo apt-get install terraform
-      # - attach_workspace:
-      #     at: .
+      - run:
+          name: Install Terraform
+          command: |
+            sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+            curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+            sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+            sudo apt-get update && sudo apt-get install terraform
+      - attach_workspace:
+          at: .
       - run:
           name: terraform init plan fmt
           command: |
@@ -49,6 +49,13 @@ jobs:
       - attach_workspace:
           at: ~/project/terraform
       - run:
+          name: Install Terraform
+          command: |
+            sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+            curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+            sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+            sudo apt-get update && sudo apt-get install terraform
+      - run:
            name: terraform apply
            command: |
             ls -al
@@ -68,6 +75,13 @@ jobs:
           profile-name: default
       - attach_workspace:
           at: ~/project/terraform
+      - run:
+          name: Install Terraform
+          command: |
+            sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+            curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+            sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+            sudo apt-get update && sudo apt-get install terraform
       - run:
            name: terraform destroy
            command: |

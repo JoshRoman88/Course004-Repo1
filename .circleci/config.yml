@@ -40,8 +40,8 @@ jobs:
     steps:
       - aws-cli/setup:
           profile-name: default
-      - attach_workspace:
-          at: .
+      # - attach_workspace:
+      #     at: .
       - run:
            name: terraform apply
            command: |
@@ -53,12 +53,12 @@ jobs:
     steps:
       - aws-cli/setup:
           profile-name: default
-      - attach_workspace:
-          at: .
+      # - attach_workspace:
+      #     at: .
       - run:
            name: terraform destroy
            command: |
-            echo 2323
+            echo 2324
             terraform destroy -auto-approve
 
 workflows:
@@ -77,6 +77,6 @@ workflows:
         - destroy:
             context: AWScreds
             requires:
-              - hold
+              - apply
 
       

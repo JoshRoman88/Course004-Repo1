@@ -33,6 +33,10 @@ jobs:
             terraform init -input=false
             terraform fmt .
             terraform plan -out tfplan
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
   apply:
     working_directory: ~/project/terraform
     executor: docker-executor 
@@ -49,6 +53,10 @@ jobs:
             cd terraform
             ls -al
             terraform apply -auto-approve tfplan
+      - persist_to_workspace:
+           root: .
+           paths:
+              - .
   destroy:
     working_directory: ~/project/terraform
     executor: docker-executor 
@@ -63,7 +71,10 @@ jobs:
            command: |
             cd terraform
             terraform destroy -auto-approve
-
+      - persist_to_workspace:
+           root: .
+           paths:
+              - .
 workflows:
     deploy:
       jobs:

@@ -1,10 +1,12 @@
 version: 2.1
 orbs: 
   aws-cli: circleci/aws-cli@3.1.1
+  terraform: circleci/terraform@3.0.1
 executors:
   docker-executor:
     docker:
       - image: cimg/python:3.9.6
+
 jobs:
   init-plan:
     working_directory: ~/project/terraform
@@ -32,32 +34,63 @@ jobs:
             cd terraform
             terraform init -input=false
             terraform fmt .
-            terraform plan -input=false
+            terraform plan -out tfplan
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
   apply:
-    working_directory: /terraform
-    docker: 
-      - image: docker.mirror.hashicorp.services/hashicorp/terraform:light 
+    working_directory: ~/project/terraform
+    executor: docker-executor 
     steps:
       - checkout
+      - aws-cli/setup:
+          profile-name: default
       - attach_workspace:
-          at: .
+          at: ~/project/terraform
+      - run:
+          name: Install Terraform
+          command: |
+            sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+            curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+            sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+            sudo apt-get update && sudo apt-get install terraform
       - run:
            name: terraform apply
            command: |
-            terraform apply -auto-approve
+            ls -al
+            cd terraform
+            ls -al
+            terraform apply -auto-approve tfplan
+      - persist_to_workspace:
+           root: .
+           paths:
+              - .
   destroy:
-    working_directory: /terraform
-    docker: 
-      - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
+    working_directory: ~/project/terraform
+    executor: docker-executor 
     steps:
       - checkout
+      - aws-cli/setup:
+          profile-name: default
       - attach_workspace:
-          at: .
+          at: ~/project/terraform
+      - run:
+          name: Install Terraform
+          command: |
+            sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+            curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+            sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+            sudo apt-get update && sudo apt-get install terraform
       - run:
            name: terraform destroy
            command: |
+            cd terraform
             terraform destroy -auto-approve
-
+      - persist_to_workspace:
+           root: .
+           paths:
+              - .
 workflows:
     deploy:
       jobs:
@@ -68,10 +101,12 @@ workflows:
             requires:
               - init-plan
         - apply:
+            context: AWScreds
             requires:
               - hold
         - destroy:
+            context: AWScreds
             requires:
-              - hold
+              - apply
 
       

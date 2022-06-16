@@ -108,5 +108,3 @@ workflows:
             context: AWScreds
             requires:
               - apply
-
-      

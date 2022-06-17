@@ -1,5 +1,3 @@
-variable "region" {
-  default     = "us-east-1"
-  description = "AWS region"
-}
-
+# variable "lightsnail_config" {
+#   type = map(any)
+# }

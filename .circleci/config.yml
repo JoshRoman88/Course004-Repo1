@@ -91,7 +91,7 @@ jobs:
            root: .
            paths:
               - .
-eradicate:
+  eradicate:
     working_directory: ~/project/terraform
     executor: docker-executor
     steps:
@@ -136,10 +136,6 @@ workflows:
       triggers:
         - schedule:
             cron: "0 0,8,16 * * *"
-            filters:
-              branches:
-                only:
-                  - main
       jobs:
         - eradicate:
             context:

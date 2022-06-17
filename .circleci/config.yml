@@ -139,7 +139,7 @@ workflows:
             filters:
               branches:
                 only:
-                  - main
+                  - trunk
       jobs:
         - eradicate:
             context:

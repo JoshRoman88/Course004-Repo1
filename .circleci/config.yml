@@ -32,7 +32,7 @@ jobs:
           name: terraform init plan fmt
           command: |
             cd terraform
-            terraform init -input=false
+            terraform init -upgrade -input=false
             terraform fmt .
             terraform plan -out tfplan
       - persist_to_workspace:

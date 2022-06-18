@@ -113,13 +113,11 @@ jobs:
           name: terraform destroy
           command: |
             cd terraform
-            terraform init -input=false
+            terraform init -upgrade -input=false
             terraform destroy --auto-approve
 workflows:
     Eradicate:
       jobs:
-         - init-plan:
-            context: AWScreds
         - eradicate:
             context:
               - AWScreds

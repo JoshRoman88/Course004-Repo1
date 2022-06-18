@@ -116,6 +116,11 @@ jobs:
             terraform init -input=false
             terraform destroy --auto-approve
 workflows:
+    Eradicate:
+      jobs:
+        - eradicate:
+            context:
+              - AWScreds
     Deploy:
       jobs:
         - init-plan:

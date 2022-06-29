@@ -136,16 +136,4 @@ workflows:
         - destroy:
             context: AWScreds
             requires:
-              - apply
-      # Eradicate:
-      # triggers:
-      #   - schedule:
-      #       cron: "0 0,8,16 * * *"
-      #       filters:
-      #         branches:
-      #           only:
-      #             - trunk
-      # jobs:
-      #   - eradicate:
-      #       context:
-      #         - AWScreds
+

@@ -1,0 +1,22 @@
+apiVersion:  apps/v1
+kind: ReplicaSet
+metadata:
+  name: testing
+  labels:
+    app: testing
+
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: testing
+  template:
+    metadata:
+      labels:
+        app: testing
+    spec:
+      containers:
+      - name: testing
+        image: ubuntu
+        command: ["ub2"]
+        args: ["--rest", "--httpinterface"]

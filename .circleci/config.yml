@@ -128,10 +128,6 @@ workflows:
             context: AWScreds
             requires:
               - apply approval
-        - hold:
-            type: approval
-            requires:
-              - apply
         # - destroy:
         #     context: AWScreds
         #     requires:

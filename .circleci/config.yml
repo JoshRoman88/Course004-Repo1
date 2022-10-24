@@ -8,7 +8,7 @@ executors:
       - image: cimg/python:3.9.6
 
 jobs:
-  init-plan:
+  init-plan-aws:
     working_directory: ~/project/terraform
     executor: docker-executor 
     steps:
@@ -91,7 +91,7 @@ jobs:
            root: .
            paths:
               - .
-  eradicate:
+  clean-aws:
     working_directory: ~/project/terraform
     executor: docker-executor
     steps:
@@ -116,24 +116,35 @@ jobs:
             terraform init -upgrade -input=false
             terraform destroy --auto-approve
 workflows:
-    Eradicate:
-      jobs:
-        - eradicate:
-            context:
-              - AWScreds
     Deploy:
       jobs:
-        - init-plan:
+        - init-plan-aws:
             context: AWScreds
-        - hold:
+        - apply approval:
             type: approval
             requires:
-              - init-plan
+              - init-plan-aws
         - apply:
             context: AWScreds
             requires:
-              - hold
-        - destroy:
-            context: AWScreds
+              - apply approval
+        - hold:
+            type: approval
             requires:
-
+              - apply
+        # - destroy:
+        #     context: AWScreds
+        #     requires:
+        #       - hold
+    clean-aws:
+      triggers:
+       - schedule:
+          cron: "0 0,4,8,12,16,20 * * *"
+          filters:
+            branches:
+              only:
+                - trunk
+      jobs:
+        - clean-aws:
+            context:
+              - AWScreds

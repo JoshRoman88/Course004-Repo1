@@ -81,6 +81,7 @@ but you're mid-way through a code change and aren't quite ready to commit.
 ### AWS
 
 **IAM**
+
 Identity and Access Management
 - Create users with specific permissions set
 - Can create IAM users for multiple situations or positions (ie. dev)
@@ -95,6 +96,7 @@ Identity and Access Management
 - Can automatically configure DNS settings for your domains
 
 **aws cli **
+
 Creating new profile in aws for terraform
 ```
 aws configure --profile **profile name**
@@ -118,6 +120,7 @@ terraform fmt - formats typed code in a way to be easy to read
 ```
 
 **Variables**
+
 var types
 - string
 - map() ex: map(string)

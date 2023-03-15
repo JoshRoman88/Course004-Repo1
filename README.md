@@ -1,5 +1,5 @@
 
-## **Git**
+### **Git**
 
 **Trunk vs Branch Dev**
 
@@ -7,7 +7,6 @@
 - Allows features to be implemented as they are reviewed and completed
 Issues
 - Can have conflicting errors as the main branch is updated with new commits and pushes
-
 
 **Pull Requests**
 
@@ -17,16 +16,16 @@ Issues
 
 **Commands**
 ```
--Git clone - Locate repo and clone it
--Git pull - working in a repo and pulling it
--Git add (staging)- working in a repo and adding or modifying files
--Git commit (sealing file to be send - message goes with commit to show changes)- working in repo and sealing changes made
--Git commit -m “Message goes here”
--Git push - Sends changes
--Git status - shows status of changes ready to be committed
--Git log:  shows log of commits
--Git log —oneline : shows log in a more readable way
--Git revert: 
+Git clone - Locate repo and clone it
+Git pull - working in a repo and pulling it
+Git add (staging)- working in a repo and adding or modifying files
+Git commit (sealing file to be send - message goes with commit to show changes)- working in repo and sealing changes made
+Git commit -m “Message goes here”
+Git push - Sends changes
+Git status - shows status of changes ready to be committed
+Git log:  shows log of commits
+Git log —oneline : shows log in a more readable way
+Git revert: 
  -When using revert - VI is opened and commit message is edited at the top line.
 ```
 Commit messages should identify who did it, what file was modify, and what will happen if commit is pushed.
@@ -35,11 +34,10 @@ Keep messages uniform following the same formula each time.
 
 **git branch**
 ```
--git branch - shows current branches
--git branch <name of branch> - creates branch
-
--git checkout <name of branch> - to work in branch
--git switch <branch name> - change branches
+git branch - shows current branches
+git branch <name of branch> - creates branch
+git checkout <name of branch> - to work in branch
+git switch <branch name> - change branches
 ```
 An error will pop when trying to push while in the branch. The proper command will display - copy and use that command
 ```
@@ -48,8 +46,8 @@ git push --set-upstream origin <branch name>
 
 deleting branch from local machine
 ```
--git switch main - Cannot be in the branch you are deleting.
--git branch -d <branch name>
+git switch main - Cannot be in the branch you are deleting.
+git branch -d <branch name>
 ```
 
 Branch to merge flow
@@ -71,7 +69,7 @@ git stash pop
 ```
  - Work on original file, add, commit
  ```
- -git push
+git push
  ```
 
 git stash temporarily shelves (or stashes) changes you've made to your 
@@ -80,7 +78,7 @@ Stashing is handy if you need to quickly switch context and work on something el
 but you're mid-way through a code change and aren't quite ready to commit.
 
 ******************
-## AWS
+### AWS
 
 **IAM**
 Identity and Access Management
@@ -99,7 +97,7 @@ Identity and Access Management
 **aws cli **
 Creating new profile in aws for terraform
 ```
-$ aws configure --profile **profile name**
+aws configure --profile **profile name**
 ```
 Example - create an s3 bucket:
 ```
@@ -107,7 +105,7 @@ aws s3api create-bucket --bucket **NAME** --region us-east-1
 ```
 
 ******************
-## Terraform
+### Terraform
 
 **commands/arguments**
 ```
@@ -130,7 +128,6 @@ var types
  - Best practice: Declare providers in terraform
 
 **State**
-
 - Maps configured resouce instances and remote objects
 - Make sure to communicate with team when adding hardware changes to instance
 ```
@@ -144,6 +141,6 @@ Terraform Import - can import changes
 
 Show state of recource in CLI
 ```
-$terraform state show **resource**
+terraform state show **resource**
 ```
 

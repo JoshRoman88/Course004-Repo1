@@ -1,4 +1,3 @@
-
 ### **Git**
 
 **Trunk vs Branch Dev**
@@ -146,4 +145,3 @@ Show state of recource in CLI
 ```
 terraform state show **resource**
 ```
-

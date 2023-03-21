@@ -10,7 +10,7 @@ locals {
   rds = data.aws_secretsmanager_secret_version.rds_access.secret_string
 }
 data "aws_secretsmanager_secret" "rds" {
-  arn = ""
+  arn = "arn:aws:secretsmanager:us-east-1:242203076144:secret:RDS-hTUqO1"
 }
 data "aws_secretsmanager_secret_version" "rds" {
   secret_id = data.aws_secretsmanager_secret.rds.id

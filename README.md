@@ -94,7 +94,7 @@ Identity and Access Management
 - Ability to register domain names
 - Can automatically configure DNS settings for your domains
 
-**aws cli **
+**aws cli**
 
 Creating new profile in aws for terraform
 ```

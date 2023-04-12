@@ -15,16 +15,16 @@ Issues
 
 **Commands**
 ```
-Git clone - Locate repo and clone it
-Git pull - working in a repo and pulling it
-Git add (staging)- working in a repo and adding or modifying files
-Git commit (sealing file to be send - message goes with commit to show changes)- working in repo and sealing changes made
-Git commit -m “Message goes here”
-Git push - Sends changes
-Git status - shows status of changes ready to be committed
-Git log:  shows log of commits
-Git log —oneline : shows log in a more readable way
-Git revert: 
+git clone - Locate repo and clone it
+git pull - working in a repo and pulling it
+git add (staging)- working in a repo and adding or modifying files
+git commit (sealing file to be send - message goes with commit to show changes)- working in repo and sealing changes made
+git commit -m “Message goes here”
+git push - Sends changes
+git status - shows status of changes ready to be committed
+git log:  shows log of commits
+git log —oneline : shows log in a more readable way
+git revert: 
  -When using revert - VI is opened and commit message is edited at the top line.
 ```
 Commit messages should identify who did it, what file was modify, and what will happen if commit is pushed.
